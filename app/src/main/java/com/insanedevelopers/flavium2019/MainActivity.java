@@ -13,6 +13,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.TextView;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,6 +44,16 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        //timer code started
+        TextView t1_hrs,t2_min,t3_sec;
+        t1_hrs=findViewById(R.id.txt_hrs);
+        t2_min=findViewById(R.id.txt_min);
+        t3_sec=findViewById(R.id.txt_sec);
+        Calendar cal = Calendar.getInstance();
+        Date d=cal.getTime();
+        DateFormat dateFormat=new SimpleDateFormat("HH:MM:SS");
+        String Formatteddate= dateFormat.format(d);
+
     }
 
     @Override
