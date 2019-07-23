@@ -1,6 +1,7 @@
 package com.insanedevelopers.flavium2019;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -22,21 +24,15 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private Handler handler=new Handler();
+     TextView t1_hrs,t2_min,t3_sec;
+     LinearLayout l1,l2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -44,18 +40,58 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        //timer code started
-        TextView t1_hrs,t2_min,t3_sec;
+        l1=findViewById(R.id.l1);
+        l2=findViewById(R.id.l2);
         t1_hrs=findViewById(R.id.txt_hrs);
         t2_min=findViewById(R.id.txt_min);
         t3_sec=findViewById(R.id.txt_sec);
-        Calendar cal = Calendar.getInstance();
-        Date d=cal.getTime();
-        DateFormat dateFormat=new SimpleDateFormat("HH:MM:SS");
-        String Formatteddate= dateFormat.format(d);
+        //timer function called
+        countdownstart();
+    }
+    //timer function definition
+    void countdownstart()
+    {
+        Runnable runnable=new Runnable() {
+            @Override
+            public void run() {
+                handler.postDelayed(this, 1000);
+                try{
+                    Calendar cal = Calendar.getInstance();
+                    Date d=cal.getTime();
+                    DateFormat dateFormat=new SimpleDateFormat("HH:MM:SS");
+                    String Formatteddate= dateFormat.format(d);
+                    String time[] = Formatteddate.split(":");
+                    if(Integer.parseInt(time[0])<18) {
+
+                        int sec = Integer.valueOf(time[2]);
+                        int min = Integer.valueOf(time[1]);
+                        int hrs = Integer.valueOf(time[0]);
+                        int diffsec = 60 - sec;
+                        int diffmin = 60 - min;
+                        int diffhrs = 18 - hrs;
+                        t1_hrs.setText(String.valueOf(diffhrs));
+                        t2_min.setText(String.valueOf(diffmin));
+                        t3_sec.setText(String.valueOf(diffsec));
+                    }
+                    else
+                    {
+                        l1.setVisibility(View.GONE);
+                        l2.setVisibility(View.GONE);
+                        t1_hrs.setVisibility(View.GONE);
+                        t2_min.setVisibility(View.GONE);
+                        t3_sec.setVisibility(View.GONE);
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        };
+        handler.postDelayed(runnable,1*1000);
 
     }
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
