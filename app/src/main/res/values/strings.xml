@@ -13,4 +13,22 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="live_scores">Live Scores</string>
+    <string name="fixtures">Fixtures</string>
+    <string name="results">Results</string>
+    <string name="team">Team</string>
+    <string name="about_flavium">About Flavium</string>
+    <string name="meet_the_developers">Meet the Developers</string>
+    <string name="pic_of_the_day">Pic of The Day</string>
+    <string name="title_activity_live_score1">live_score1</string>
+    <string name="title_activity_live_score2">live_score2</string>
+    <string name="title_activity_live_score3">live_score3</string>
+    <string name="title_activity_live_score4">live_score4</string>
+    <string name="title_activity_live_score5">live_score5</string>
+    <string name="title_activity_live_score6">live_score6</string>
+    <string name="title_activity_results">results</string>
+    <string name="title_activity_fixtures">fixtures</string>
+    <string name="title_activity_aboutus">aboutus</string>
+    <string name="title_activity_pic_of_the_day">pic_of_the_day</string>
+    <string name="title_activity_meet_the_developers">meet_the_developers</string>
 </resources>

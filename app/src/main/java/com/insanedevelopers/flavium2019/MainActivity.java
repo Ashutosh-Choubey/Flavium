@@ -21,12 +21,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private Handler handler=new Handler();
-     TextView t1_hrs,t2_min,t3_sec;
-     LinearLayout l1,l2;
+     private TextView t1_hrs,t2_min,t3_sec;
+     private LinearLayout l1,l2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,19 +61,20 @@ public class MainActivity extends AppCompatActivity
                     Date d=cal.getTime();
                     DateFormat dateFormat=new SimpleDateFormat("HH:MM:SS");
                     String Formatteddate= dateFormat.format(d);
-                    String time[] = Formatteddate.split(":");
-                    if(Integer.parseInt(time[0])<18) {
+                    String[] time = Formatteddate.split(":");
+                   if(Integer.parseInt(time[0])<18) {
 
                         int sec = Integer.valueOf(time[2]);
                         int min = Integer.valueOf(time[1]);
                         int hrs = Integer.valueOf(time[0]);
-                        int diffsec = 60 - sec;
-                        int diffmin = 60 - min;
+                        t3_sec.setText(String.valueOf(sec));
+                        int diffsec = 59 - sec;
+                        int diffmin = 59 - min;
                         int diffhrs = 18 - hrs;
                         t1_hrs.setText(String.valueOf(diffhrs));
                         t2_min.setText(String.valueOf(diffmin));
                         t3_sec.setText(String.valueOf(diffsec));
-                    }
+                   }
                     else
                     {
                         l1.setVisibility(View.GONE);
@@ -132,15 +134,17 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_live) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_fixtures) {
 
-        } else if (id == R.id.nav_tools) {
+        } else if (id == R.id.nav_results) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_pic_of_the_day) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_about) {
+
+        } else if(id==R.id.nav_developers){
 
         }
 

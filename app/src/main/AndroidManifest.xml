@@ -10,6 +10,50 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".meet_the_developers"
+            android:label="@string/title_activity_meet_the_developers"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".pic_of_the_day"
+            android:label="@string/title_activity_pic_of_the_day"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".aboutus"
+            android:label="@string/title_activity_aboutus"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".fixtures"
+            android:label="@string/title_activity_fixtures"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".results"
+            android:label="@string/title_activity_results"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".live_score6"
+            android:label="@string/title_activity_live_score6"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".live_score5"
+            android:label="@string/title_activity_live_score5"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".live_score4"
+            android:label="@string/title_activity_live_score4"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".live_score3"
+            android:label="@string/title_activity_live_score3"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".live_score2"
+            android:label="@string/title_activity_live_score2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".live_score1"
+            android:label="@string/title_activity_live_score1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
